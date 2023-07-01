@@ -56,11 +56,28 @@ void cadastrar_clientes(char nome_clientes[][100], char cpf_clientes[][12], int 
 
       numero_clientes++;
 
-   } while (numero_clientes <= CLIENTES)
+   } while (numero_clientes <= CLIENTES);
 }
-/*void cadastrar_escala()
+void cadastrar_escala(int codigo_cidade[][MAX_TAMANHO], char nome_cidade[][MAX_TAMANHO], int escala)
 {
-}*/
+
+   do
+   {
+      if (escala >= ESCALAS)
+      {
+         printf("Limite máximo de escalas atingido:\n");
+         return;
+      }
+      printf("Digite o codigo da cidade:\n");
+      scanf("%d", codigo_cidade);
+      printf("Digite o nome da cidade:\n");
+      scanf("%[^\n]", nome_cidade); 
+      
+      escala++;
+
+   } while (escala <= ESCALAS);
+   
+}
 /*
 void cadastrar_voo()
 {
@@ -86,10 +103,13 @@ int main()
    int opcao;
    int clientes[CLIENTES];
    int voo[VOO];
-   int escala[ESCALAS];
+   int escala = 0;
+   int codigo_cidade;
+   int nome_cidade;
    // int i, j, k;
 
    cadastrar_clientes(nome_clientes, cpf_clientes, numero_clientes);
+   cadastrar_escala(codigo_cidade,nome_cidade,escala)
    /*do
    {
       opcao = menu();
