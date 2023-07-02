@@ -9,7 +9,7 @@
 #define MAX_TAMANHO 100
 
 void cadastrar_clientes(char nome_clientes[][100], char cpf_clientes[][12], int numero_clientes);
-// void cadastrar_escala();
+void cadastrar_escala(int codigo_cidade[][MAX_TAMANHO], char nome_cidade[][MAX_TAMANHO], int escala);
 // void cadastrar_voo();
 // void comprar_passagem_aerea();
 // void exibir_voo();
@@ -78,10 +78,27 @@ void cadastrar_escala(int codigo_cidade[][MAX_TAMANHO], char nome_cidade[][MAX_T
    } while (escala <= ESCALAS);
    
 }
-/*
-void cadastrar_voo()
+
+void cadastrar_voo(int codigo_voo[][MAX_TAMANHO],  int quantidade_filas[][FILAS], char cidade_origem[][MAX_TAMANHO], char cidade_destino[][MAX_TAMANHO], char tipo_voo,float valor_passagem)
 {
-}*/
+   printf("Digite o codigo do voo:\n");
+   scanf("%d", &codigo_voo);
+   /*
+   ******quantidade de filas
+   */
+   
+   printf("Digite a cidade de origem:\n");
+   scanf("%[^\n]", &cidade_origem );
+
+   printf("Digite a cidade de destino:\n");
+   scanf("%[^\n]",&cidade_destino);
+
+   printf("Digite o tipo de voo:\n");
+   scanf("%c", &tipo_voo);
+
+   printf("Digite o valor da passagem:\n");
+   scanf("%f", &valor_passagem);
+}
 /*
 void comprar_passagem_aerea()
 {
@@ -101,8 +118,12 @@ int main()
    int nome_clientes[CLIENTES][MAX_TAMANHO], cpf_clientes[CLIENTES][12];
    int numero_clientes = 0;
    int opcao;
-   int clientes[CLIENTES];
-   int voo[VOO];
+   int codigo_voo[VOO];
+   char cidade_origem[];
+   int quantidade_filas;
+   char cidade_destino;
+   char tipo_voo;
+   char valor_passagem;
    int escala = 0;
    int codigo_cidade;
    int nome_cidade;
@@ -120,7 +141,7 @@ int main()
          cadastrar_clientes(nome_clientes, cpf_clientes, numero_clientes);
          break;
       case 2:
-         //cadastrar_escala();
+         //cadastrar_escala(codigo_cidade,nome_cidade, int escala);
          break;
       case 3:
          //cadastrar_voo();
