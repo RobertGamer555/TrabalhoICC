@@ -36,7 +36,7 @@ void cadastrar_clientes(char nome_clientes[][100], char cpf_clientes[][12], int 
 {
    do
    {
-      if (numero_clientes >= CLIENTES)
+      if (numero_clientes > CLIENTES)
       {
          printf("Limite máximo de clientes atingido!\n");
          return;
@@ -63,7 +63,7 @@ void cadastrar_escala(int codigo_cidade[][MAX_TAMANHO], char nome_cidade[][MAX_T
 
    do
    {
-      if (escala >= ESCALAS)
+      if (escala > ESCALAS)
       {
          printf("Limite máximo de escalas atingido:\n");
          return;
@@ -79,11 +79,15 @@ void cadastrar_escala(int codigo_cidade[][MAX_TAMANHO], char nome_cidade[][MAX_T
    
 }
 
-void cadastrar_voo(int codigo_voo[][MAX_TAMANHO],  int quantidade_filas[][FILAS], char cidade_origem[][MAX_TAMANHO], char cidade_destino[][MAX_TAMANHO], char tipo_voo,float valor_passagem)
+void cadastrar_voo(int codigo_voo[][MAX_TAMANHO],  int filas_assentos[][FILAS], char cidade_origem[][MAX_TAMANHO], char cidade_destino[][MAX_TAMANHO], char tipo_voo,float valor_passagem, int numero_voo)
 {
   do{
 
-      if(voo)
+         if(numero_voo > VOO){
+
+            printf("Limite de voos atingido:\n");
+            return;
+         }
  
  
    printf("Digite o codigo do voo:\n");
@@ -98,16 +102,31 @@ void cadastrar_voo(int codigo_voo[][MAX_TAMANHO],  int quantidade_filas[][FILAS]
    printf("Digite a cidade de destino:\n");
    scanf("%[^\n]",&cidade_destino);
 
-   printf("Digite o tipo de voo:\n");
+   printf("Digite o tipo de voo(D - para direta | E - com escala):\n");
    scanf("%c", &tipo_voo);
+   if(tipo_voo == "E" || tipo_voo == 'e'){
+
+
+   }
 
    printf("Digite o valor da passagem:\n");
    scanf("%f", &valor_passagem);
+   numero_voo++;
+  }while(numero_voo <= VOO);
 }
-/*
-void comprar_passagem_aerea()
+
+void comprar_passagem_aerea(char cpf_clientes[][MAX_TAMANHO], int codigo_voo, int filas_assentos)
 {
-}*/
+   printf("Digite o CPF do usuario:\n");
+   scanf("%s",cpf_clientes);
+
+   printf("Digite o codigo do voo:\n");
+   scanf("%d", &codigo_voo);
+
+   printf("Digite a fila do assento:\n");
+   scanf("%d", &);
+
+}
 /*
 void exibir_voo()
 {
@@ -125,13 +144,14 @@ int main()
    int opcao;
    int codigo_voo[VOO];
    char cidade_origem[];
-   int quantidade_filas;
    char cidade_destino;
    char tipo_voo;
    char valor_passagem;
    int escala = 0;
    int codigo_cidade;
    int nome_cidade;
+   int numero_voo = 0;
+   int filas_assento[]
    // int i, j, k;
 
    cadastrar_clientes(nome_clientes, cpf_clientes, numero_clientes);
