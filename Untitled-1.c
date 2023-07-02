@@ -81,11 +81,16 @@ void cadastrar_escala(int codigo_cidade[][MAX_TAMANHO], char nome_cidade[][MAX_T
 
 void cadastrar_voo(int codigo_voo[][MAX_TAMANHO],  int quantidade_filas[][FILAS], char cidade_origem[][MAX_TAMANHO], char cidade_destino[][MAX_TAMANHO], char tipo_voo,float valor_passagem)
 {
+  do{
+
+      if(voo)
+ 
+ 
    printf("Digite o codigo do voo:\n");
    scanf("%d", &codigo_voo);
-   /*
-   ******quantidade de filas
-   */
+   
+   printf("Digite a fila desejada:\n");
+   scanf("%d", &quantidade_filas);
    
    printf("Digite a cidade de origem:\n");
    scanf("%[^\n]", &cidade_origem );
